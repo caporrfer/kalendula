@@ -47,4 +47,8 @@ Los datos visibles del negocio están centralizados en `src/pages/index.astro`, 
 
 ## Despliegue
 
-Puede desplegarse como sitio estático en Netlify, Cloudflare Pages, Vercel o cualquier hosting que sirva `dist/`; alternativamente, construir la imagen con `docker build -t kalendula .`.
+Cada `push` a `main` ejecuta `.github/workflows/deploy-pages.yml`, comprueba el proyecto, genera `dist/index.html` y publica ese directorio en GitHub Pages. La URL configurada es:
+
+`https://caporrfer.github.io/kalendula/`
+
+En la configuración del repositorio, **Settings → Pages → Source** debe estar seleccionado **GitHub Actions**. También puede desplegarse en cualquier hosting que sirva `dist/` o mediante `docker build -t kalendula .`.

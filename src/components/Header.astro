@@ -1,8 +1,9 @@
 ---
 const wa='https://wa.me/34623164848?text=Hola%2C%20he%20visitado%20la%20web%20de%20Kal%C3%A9ndula%20y%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre...';
+const base=import.meta.env.BASE_URL;
 ---
 <a class="skip" href="#contenido">Saltar al contenido</a>
-<header class="header" id="header"><a href="#inicio" class="brand" aria-label="Kaléndula, inicio">Kaléndula <small>ATELIER</small></a>
+<header class="header" id="header"><a href={`${base}#inicio`} class="brand" aria-label="Kaléndula, inicio">Kaléndula <small>ATELIER</small></a>
 <button class="menu-button" aria-expanded="false" aria-controls="nav"><span></span><span></span><span class="sr-only">Abrir menú</span></button>
 <nav id="nav" aria-label="Navegación principal"><a href="#atelier">Atelier</a><a href="#servicios">Servicios</a><a href="#bodas">Bodas y eventos</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a></nav>
 <a class="header-cta" href={wa} target="_blank" rel="noreferrer">Pedir presupuesto</a></header>
