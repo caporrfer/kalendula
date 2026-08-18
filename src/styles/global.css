@@ -168,52 +168,92 @@ footer > div p { margin-top: 2rem; color: #bfc9ba; }
 @keyframes pop { from { opacity: 0; transform: scale(.96) translateY(12px); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 900px) {
-  .header { inset: .6rem .7rem auto; height: 62px; }
+  .header { inset: .6rem .7rem auto; width: auto; height: 62px; padding-inline: .55rem; }
   .header-cta { display: none; }
   .menu-button { display: block; }
   .menu-button span:not(.sr-only) { display: block; width: 21px; height: 1px; margin: 5px auto; background: currentColor; }
-  .header nav { display: none; position: absolute; inset: 72px 0 auto; padding: 1.5rem; flex-direction: column; align-items: stretch; gap: 1rem; border: 1px solid rgba(128,145,115,.18); border-radius: 1.7rem; background: rgba(250,247,240,.97); color: var(--ink); box-shadow: var(--shadow); font: 1.4rem var(--serif); }
+  .header nav { display: none; position: absolute; inset: 70px 0 auto; padding: 1.35rem; flex-direction: column; align-items: stretch; gap: .9rem; border: 1px solid rgba(128,145,115,.18); border-radius: 1.5rem; background: var(--cream); color: var(--ink); box-shadow: 0 14px 36px rgba(60,74,57,.14); font: 1.35rem var(--serif); }
   .header nav.open { display: flex; animation: pop .25s both; }
-  .hero { min-height: auto; padding: 7rem 1.25rem 3rem; grid-template-columns: 1fr; gap: 3rem; }
-  .hero-copy { padding: 1rem 0 0; }
-  .hero figure { height: 68svh; min-height: 520px; border-radius: 45% 45% 1.8rem 1.8rem; }
+  .hero { min-height: auto; padding: 6.8rem 1.2rem 1.2rem; grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-copy { max-width: 620px; padding: .5rem 0 0; }
+  .hero figure { width: 100%; height: auto; min-height: 0; aspect-ratio: 4/5; border-radius: 45% 45% 1.5rem 1.5rem; }
   .hero::after { right: -2rem; top: 33%; }
   .intro, .weddings, .contact { grid-template-columns: 1fr; }
   .intro-copy { padding-top: 0; }
-  .weddings { padding: 1rem; }
-  .wedding-image { height: 65svh; border-radius: 2rem 8rem 2rem 2rem; }
+  .weddings { padding: .85rem; gap: 0; }
+  .wedding-image { width: 100%; height: auto; aspect-ratio: 4/3; border-radius: 1.5rem 5rem 1.5rem 1.5rem; }
+  .wedding-copy { padding: 4rem 1.25rem; }
   .service-list { grid-template-columns: 1fr; }
   .gallery header, .process header { display: block; }
   .gallery header .text-link { margin-top: 1.5rem; }
   .process ol { grid-template-columns: 1fr; }
   .process li { border-radius: 5rem 5rem 1.8rem 1.8rem; }
   .instagram { grid-template-columns: 1fr; }
-  .instagram > div:first-child { padding: 4rem 1rem; }
-  .insta-images { height: 540px; padding: 0 0 1rem; }
+  .instagram > div:first-child { padding: 4rem 1.25rem 3rem; }
+  .insta-images { height: 500px; padding: 0 0 1rem; }
   .visit { grid-template-columns: 1fr; align-items: start; }
   footer { grid-template-columns: 1fr; }
+
+  /* On touch devices content must be immediate, not dependent on scroll timing. */
+  .reveal, .reveal.is-visible { opacity: 1; transform: none; transition: none; }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   body { overflow-x: hidden; }
   main { overflow: hidden; }
   .hero, .intro, .atelier-image, .services, .weddings, .gallery, .process, .instagram, .contact { overflow: hidden; }
-  .hero h1 { font-size: 3.3rem; }
-  .hero figure { min-height: 450px; }
-  .actions { align-items: flex-start; flex-direction: column; }
-  .section { padding-left: 1.2rem; padding-right: 1.2rem; }
-  .atelier-image img { height: 120vw; border-radius: 6rem 1.5rem 6rem 1.5rem; }
-  .atelier-image p { position: relative; right: auto; bottom: auto; margin: -2rem 1rem 0; padding: 1.4rem; }
+  .brand-logo { width: 46px; height: 46px; }
+  .header.scrolled .brand-logo { width: 44px; height: 44px; }
+  .hero { padding: 6.2rem 1rem 1rem; gap: 2rem; }
+  .hero h1 { max-width: 100%; font-size: clamp(2.85rem, 13vw, 3.6rem); line-height: .98; }
+  .hero-copy > p:not(.eyebrow) { margin: 1.5rem 0; font-size: .94rem; }
+  .hero figure { aspect-ratio: 4/5; border-radius: 42% 42% 1.25rem 1.25rem; }
+  .hero figcaption { right: 1rem; bottom: .9rem; }
+  .hero::before { width: 80vw; height: 80vw; }
+  .hero::after { top: 42%; right: -1rem; font-size: 9rem; }
+  .actions { align-items: stretch; flex-direction: column; gap: 1rem; }
+  .actions .button { width: 100%; }
+  .section { padding: 4.8rem 1rem; }
+  .section h2, .weddings h2, .instagram h2, .visit h2 { font-size: clamp(2.65rem, 12vw, 3.7rem); overflow-wrap: anywhere; }
+  .eyebrow { margin-bottom: 1rem; }
+  .intro { gap: 2rem; }
+  .intro::after { width: 10rem; height: 10rem; right: -4rem; }
+  .intro-copy .lead { font-size: 1.45rem; }
+  .atelier-image { padding: .8rem 1rem 4.8rem; }
+  .atelier-image img { width: 100%; height: auto; aspect-ratio: 4/5; border-radius: 5rem 1.25rem 5rem 1.25rem; }
+  .atelier-image p { position: relative; right: auto; bottom: auto; margin: -1.7rem .75rem 0; padding: 1.35rem; border-radius: 1.4rem 1.4rem .3rem 1.4rem; }
+  .services { padding-top: 5.6rem; }
+  .services header { margin-bottom: 2.4rem; }
+  .service-list { gap: .8rem; }
+  .service-list article { min-height: 0; padding: 1.4rem; border-radius: 1.4rem; }
+  .service-list h3 { margin-top: 1.4rem; font-size: 1.65rem; }
+  .weddings { padding: .65rem; }
+  .wedding-copy { padding: 3.5rem .85rem; }
   .wedding-copy ul { grid-template-columns: 1fr; }
-  .gallery-grid { gap: .65rem; }
-  .gallery-item { height: 66vw !important; margin-top: 0 !important; border-radius: 1rem; }
-  .gallery-item:nth-child(3n+1) { grid-column: span 7; }
-  .gallery-item:not(:nth-child(3n+1)) { grid-column: span 5; }
+  .wedding-copy li { padding: .8rem 1rem; }
+  .gallery header { margin-bottom: 2.5rem; }
+  .gallery-grid { grid-template-columns: 1fr; gap: .8rem; }
+  .gallery-item, .gallery-item:nth-child(n) { grid-column: 1; width: 100%; height: auto !important; margin-top: 0 !important; aspect-ratio: 4/5; border-radius: 1.2rem; }
+  .gallery-item:nth-child(3n+2) { aspect-ratio: 1/1; }
   .gallery-item::after { display: none; }
-  .contact form { grid-template-columns: 1fr; padding: 1.3rem; border-radius: 1.7rem; }
+  .process header { margin-bottom: 2.5rem; }
+  .process ol { gap: .8rem; }
+  .process li { padding: 1.7rem 1.3rem; border-radius: 3.5rem 3.5rem 1.4rem 1.4rem; }
+  .instagram { min-height: 0; padding: .65rem; }
+  .instagram > div:first-child { padding: 3.5rem .85rem 2.5rem; }
+  .insta-images { height: auto; padding-bottom: 0; align-items: start; }
+  .insta-images img { height: auto; aspect-ratio: 3/4; border-radius: 4rem 4rem 1rem 1rem; }
+  .insta-images img:first-child { margin-top: 2.5rem; }
+  .contact { gap: 3rem; }
+  .contact-actions { align-items: stretch; flex-direction: column; }
+  .contact-actions .button { width: 100%; }
+  .contact form { grid-template-columns: 1fr; gap: 1rem; padding: 1.2rem; border-radius: 1.5rem; }
   .contact label { grid-column: 1/-1; }
-  .insta-images { height: 400px; }
-  .visit { margin-inline: .7rem; border-radius: 2rem; }
+  .contact form button { width: 100%; }
+  .visit { margin: 0 .65rem 1rem; padding: 3rem 1.25rem; gap: 1.8rem; border-radius: 1.6rem; }
+  footer { padding: 3rem 1.25rem 2rem; gap: 2.2rem; }
+  footer .brand-logo { width: 72px; height: 72px; }
+  footer nav { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
