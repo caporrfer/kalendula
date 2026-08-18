@@ -11,5 +11,7 @@ const base=import.meta.env.BASE_URL;
 const h=document.querySelector('.header'),b=document.querySelector('.menu-button'),n=document.querySelector('#nav');
 b?.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n?.classList.toggle('open',!o)});
 n?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{b?.setAttribute('aria-expanded','false');n?.classList.remove('open')}));
-addEventListener('scroll',()=>h?.classList.toggle('scrolled',scrollY>40),{passive:true});
+let ticking=false,scrolled=false;
+const updateHeader=()=>{const next=scrollY>40;if(next!==scrolled){scrolled=next;h?.classList.toggle('scrolled',next)}ticking=false};
+addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(updateHeader)}},{passive:true});
 </script>
