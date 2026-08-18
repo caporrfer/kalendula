@@ -1,12 +1,7 @@
-# Galería pública: https://www.bodas.net/organizacion-bodas/kalendula-atelier--e282983
-# Instagram: https://www.instagram.com/kalendulatelier/
+# Fotografías y logo actualizados desde el perfil público de Instagram (18-08-2026):
+# https://www.instagram.com/kalendulatelier/
+#
+# Fotografía de bodas conservada de la galería pública:
+# https://www.bodas.net/organizacion-bodas/kalendula-atelier--e282983
 
-hero.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/79a4cc13-bb0d-4a03-b9b3-71568545d401_1_282983-178666089350344.jpeg
-gallery-1.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/335eb76d-d0f2-46e0-8e59-cba7eb2f2a7e_1_282983-178238354638626.jpeg
-gallery-2.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/img-4910_1_282983-178666090070767.jpeg
-gallery-3.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/758c91ea-a4a6-411b-b765-dbce02b37e2f_1_282983-178238354585368.jpeg
-gallery-4.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/img-4920_1_282983-178666090359721.jpeg
-gallery-5.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/6c67697b-2161-4829-a34e-35659106541d_1_282983-178238354746644.jpeg
-gallery-6.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/img-7747_1_282983-178238333971143.jpeg
-gallery-7.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/img-7745_1_282983-178238333669784.jpeg
-gallery-8.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/png/fbe7bb77-8cea-45ac-a886-54530068bf02_1_282983-178666090974408.jpeg
+wedding.webp https://cdn0.bodas.net/vendor/82983/3_2/1920/jpeg/img-7747_1_282983-178238333971143.jpeg
