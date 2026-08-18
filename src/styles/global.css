@@ -256,6 +256,128 @@ footer > div p { margin-top: 2rem; color: #bfc9ba; }
   footer nav { grid-template-columns: 1fr; }
 }
 
+/* Mobile app experience */
+@media (max-width: 640px) {
+  html { background: #dfe6da; }
+  body { background: #dfe6da; background-image: none; }
+  main, footer { max-width: 480px; margin-inline: auto; }
+  main { padding-top: .5rem; background: var(--cream); box-shadow: 0 0 50px rgba(60,74,57,.08); }
+
+  .header, .header.scrolled {
+    inset: .55rem auto auto 50%;
+    width: min(calc(100% - 1rem), 464px);
+    height: 60px;
+    padding: .4rem .45rem;
+    transform: translateX(-50%);
+    color: var(--ink);
+    background: rgba(255,253,248,.96);
+    border-color: rgba(82,99,77,.14);
+    box-shadow: 0 8px 28px rgba(54,68,51,.12);
+  }
+  .header nav { inset: 68px 0 auto; align-items: center; text-align: center; }
+  .menu-button { background: var(--sage-pale); }
+  .brand-logo, .header.scrolled .brand-logo { width: 46px; height: 46px; }
+
+  .hero {
+    margin: 0 .55rem .7rem;
+    padding: 6.5rem 1.15rem 1.1rem;
+    justify-items: center;
+    border-radius: 0 0 2.2rem 2.2rem;
+    text-align: center;
+  }
+  .hero-copy { display: flex; flex-direction: column; align-items: center; }
+  .hero .eyebrow { display: inline-flex; margin-bottom: 1.2rem; padding: .5rem .8rem; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; }
+  .hero h1 { font-size: clamp(2.8rem, 12.5vw, 3.55rem); }
+  .hero-copy > p:not(.eyebrow) { max-width: 29rem; }
+  .hero .actions { width: 100%; align-items: center; }
+  .hero .text-link { color: var(--white); }
+  .hero figure { max-width: 390px; border-radius: 10rem 10rem 1.4rem 1.4rem; }
+
+  .section, .weddings, .instagram, .visit {
+    width: auto;
+    margin: .7rem .55rem;
+    border-radius: 2.2rem;
+  }
+  .section { padding: 4.4rem 1.2rem; }
+  .section header, .section > div, .wedding-copy, .instagram > div:first-child, .visit > div, .visit address {
+    text-align: center;
+  }
+  .section h2, .weddings h2, .instagram h2, .visit h2 { font-size: clamp(2.55rem, 11.5vw, 3.5rem); }
+  .eyebrow { text-align: center; }
+
+  .intro { justify-items: center; gap: 1.8rem; border: 1px solid rgba(128,145,115,.12); background: var(--warm-white); }
+  .intro > div, .intro-copy { max-width: 34rem; text-align: center; }
+  .intro-copy { display: flex; flex-direction: column; align-items: center; }
+  .intro h2 br { display: none; }
+
+  .atelier-image { padding: .7rem; background: var(--blush); }
+  .atelier-image img { border-radius: 8rem 8rem 1.6rem 1.6rem; }
+  .atelier-image p { z-index: 1; margin: -2rem .7rem .7rem; text-align: center; }
+
+  .services { padding-top: 5rem; }
+  .services::before { display: none; }
+  .services header { text-align: center; }
+  .service-list { align-items: stretch; }
+  .service-list article { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .service-list article:hover { transform: none; }
+  .service-list p { max-width: 25rem; }
+
+  .weddings { display: flex; padding: .7rem; flex-direction: column; background: var(--blush); }
+  .wedding-image { order: 0; border-radius: 1.7rem 1.7rem 7rem 7rem; }
+  .wedding-copy { order: 1; display: flex; padding: 3.8rem .75rem 3.2rem; flex-direction: column; align-items: center; }
+  .wedding-copy > p:not(.eyebrow) { max-width: 30rem; }
+  .wedding-copy ul { width: 100%; }
+  .wedding-copy .button { width: 100%; }
+
+  .gallery { padding-inline: 0; background: var(--warm-white); }
+  .gallery header { padding-inline: 1.2rem; text-align: center; }
+  .gallery header .text-link { margin-top: 1rem; }
+  .gallery-grid {
+    display: flex;
+    gap: .8rem;
+    width: 100%;
+    padding: 0 1.2rem 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.2rem;
+    scrollbar-width: none;
+    overscroll-behavior-inline: contain;
+  }
+  .gallery-grid::-webkit-scrollbar { display: none; }
+  .gallery-item, .gallery-item:nth-child(n) {
+    flex: 0 0 min(82vw, 370px);
+    width: auto;
+    aspect-ratio: 4/5;
+    scroll-snap-align: center;
+    box-shadow: 0 12px 28px rgba(68,80,65,.12);
+  }
+
+  .process { background: var(--sand); }
+  .process header { text-align: center; }
+  .process ol { align-items: stretch; }
+  .process li { display: flex; min-height: 220px; padding: 2rem 1.4rem; flex-direction: column; align-items: center; justify-content: center; }
+
+  .instagram { padding: .7rem; }
+  .instagram > div:first-child { display: flex; padding: 3.8rem 1rem 2.8rem; flex-direction: column; align-items: center; }
+  .instagram .button { width: 100%; }
+  .insta-images { gap: .6rem; }
+  .insta-images img { border-radius: 5rem 5rem 1.2rem 1.2rem; }
+
+  .contact { background: var(--warm-white); }
+  .contact-copy { display: flex; flex-direction: column; align-items: center; }
+  .contact-copy > p:not(.eyebrow) { max-width: 30rem; }
+  .contact-actions { width: 100%; align-items: center; }
+  .contact form { text-align: left; box-shadow: 0 14px 34px rgba(70,85,65,.1); }
+  .contact .check { text-align: left; }
+
+  .visit { display: flex; padding: 3.5rem 1.3rem; flex-direction: column; align-items: center; background: var(--sage-pale); text-align: center; }
+  .visit .text-link { margin-top: .5rem; }
+
+  footer { margin-top: .7rem; justify-items: center; border-radius: 2.2rem 2.2rem 0 0; text-align: center; }
+  footer nav { width: 100%; grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+  footer nav a { padding: .65rem; border-radius: 999px; background: rgba(255,255,255,.07); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
