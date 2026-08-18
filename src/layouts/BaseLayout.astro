@@ -14,4 +14,20 @@ const socialImage = new URL(`${base}images/hero.webp`, Astro.site ?? 'https://ca
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
 <script is:inline type="application/ld+json" set:html={JSON.stringify({ '@context':'https://schema.org','@type':['Florist','LocalBusiness'],name:'Kaléndula Atelier',telephone:'+34623164848',address:{'@type':'PostalAddress',streetAddress:'C. San Andrés',postalCode:'21120',addressLocality:'Corrales',addressRegion:'Huelva',addressCountry:'ES'},sameAs:['https://www.instagram.com/kalendulatelier/'],url:canonical.href })}/>
-</head><body><slot /></body></html>
+</head><body><slot /><script is:inline>
+const animated = document.querySelectorAll('.section > *, .service-list article, .gallery-item, .process li, .wedding-image, .wedding-copy, .instagram > *, .visit > *');
+animated.forEach(element => element.classList.add('reveal'));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+  animated.forEach(element => observer.observe(element));
+} else {
+  animated.forEach(element => element.classList.add('is-visible'));
+}
+</script></body></html>
