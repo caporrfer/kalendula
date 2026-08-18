@@ -52,3 +52,5 @@ Cada `push` a `main` ejecuta `.github/workflows/deploy-pages.yml`, comprueba el 
 `https://caporrfer.github.io/kalendula/`
 
 En la configuración del repositorio, **Settings → Pages → Source** debe estar seleccionado **GitHub Actions**. También puede desplegarse en cualquier hosting que sirva `dist/` o mediante `docker build -t kalendula .`.
+
+La compilación usa `/` como ruta base por defecto, por lo que funciona directamente en Vercel. El workflow de GitHub Pages define `BASE_PATH=/kalendula/` y `SITE_URL=https://caporrfer.github.io` durante su propia compilación.

@@ -4,8 +4,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://caporrfer.github.io',
-  // Keep the trailing slash because image and legal-page URLs append to BASE_URL.
-  base: '/kalendula/',
+  // Vercel serves the project from `/`. GitHub Pages overrides both values in
+  // its workflow because it publishes the site below `/kalendula/`.
+  site: process.env.SITE_URL ?? 'https://kalendulatelier.es',
+  base: process.env.BASE_PATH ?? '/',
   integrations: [sitemap()],
 });
