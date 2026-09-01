@@ -1,0 +1,25 @@
+---
+import { business, whatsappUrl } from '../data/site';
+const base = import.meta.env.BASE_URL;
+---
+<footer class="site-footer">
+  <div class="footer-intro">
+    <p class="wordmark footer-wordmark"><span>Kaléndula</span><small>Atelier floral</small></p>
+    <p>Floristería, decoración y celebraciones en Corrales, Huelva.</p>
+  </div>
+  <nav aria-label="Navegación secundaria">
+    <a href={`${base}servicios/`}>Flores y encargos</a>
+    <a href={`${base}bodas-eventos/`}>Bodas y eventos</a>
+    <a href={`${base}contacto/`}>Contacto</a>
+    <a href={business.instagram} target="_blank" rel="noreferrer">Instagram</a>
+  </nav>
+  <address>
+    <a href={business.maps} target="_blank" rel="noreferrer">{business.addressLine}<br>{business.postalCity}</a>
+    <a href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a>
+    <a href={whatsappUrl()} target="_blank" rel="noreferrer">WhatsApp</a>
+  </address>
+  <div class="footer-bottom">
+    <p>© {new Date().getFullYear()} Kaléndula Atelier</p>
+    <p><a href={`${base}aviso-legal/`}>Aviso legal</a><a href={`${base}privacidad/`}>Privacidad</a><a href={`${base}cookies/`}>Cookies</a></p>
+  </div>
+</footer>

@@ -1,0 +1,30 @@
+---
+import { business } from '../data/site';
+---
+<form class="inquiry-form" data-inquiry-form>
+  <div class="field-pair">
+    <label>Nombre <input name="nombre" autocomplete="name" required></label>
+    <label>Teléfono <input name="telefono" type="tel" autocomplete="tel" inputmode="tel" required></label>
+  </div>
+  <label>¿Qué necesitas?
+    <select name="servicio" required>
+      <option value="">Selecciona una opción</option>
+      <option>Ramo o composición</option><option>Boda</option><option>Evento o celebración</option><option>Decoración de espacio</option><option>Otro</option>
+    </select>
+  </label>
+  <label>Fecha <span class="optional">Opcional</span><input name="fecha" type="date"></label>
+  <label>Cuéntanos lo básico <textarea name="mensaje" rows="5" required placeholder="Qué tienes en mente, para cuándo y cualquier detalle que debamos saber"></textarea></label>
+  <label class="consent"><input type="checkbox" required><span>He leído y acepto la <a href={`${import.meta.env.BASE_URL}privacidad/`}>política de privacidad</a>.</span></label>
+  <button class="button button-dark" type="submit">Continuar en WhatsApp <span aria-hidden="true">↗</span></button>
+  <p class="form-note">Al pulsar se abrirá WhatsApp con tu consulta preparada. Podrás revisarla antes de enviarla.</p>
+</form>
+<script is:inline define:vars={{ phone: business.phoneE164.replace('+', '') }}>
+  document.querySelectorAll('[data-inquiry-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const message = `Hola, he visitado la web de Kaléndula y me gustaría hacer una consulta.\n\nNombre: ${data.get('nombre')}\nTeléfono: ${data.get('telefono')}\nServicio: ${data.get('servicio')}\nFecha: ${data.get('fecha') || 'Por concretar'}\nMensaje: ${data.get('mensaje')}`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    });
+  });
+</script>

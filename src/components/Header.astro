@@ -1,17 +1,54 @@
 ---
-const wa='https://wa.me/34623164848?text=Hola%2C%20he%20visitado%20la%20web%20de%20Kal%C3%A9ndula%20y%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre...';
-const base=import.meta.env.BASE_URL;
+import { whatsappUrl } from '../data/site';
+const base = import.meta.env.BASE_URL;
+const path = Astro.url.pathname;
+const nav = [
+  { href: `${base}servicios/`, label: 'Flores y encargos', match: '/servicios' },
+  { href: `${base}bodas-eventos/`, label: 'Bodas y eventos', match: '/bodas-eventos' },
+  { href: `${base}#trabajos`, label: 'Trabajos', match: '#trabajos' },
+  { href: `${base}contacto/`, label: 'Contacto', match: '/contacto' },
+];
 ---
-<a class="skip" href="#contenido">Saltar al contenido</a>
-<header class="header" id="header"><a href={`${base}#inicio`} class="brand" aria-label="Kaléndula, inicio"><img class="brand-logo" src={`${base}images/logo.webp`} width="150" height="150" alt="Logo de Kaléndula Atelier"></a>
-<button class="menu-button" aria-expanded="false" aria-controls="nav"><span></span><span></span><span class="sr-only">Abrir menú</span></button>
-<nav id="nav" aria-label="Navegación principal"><a href="#atelier">Atelier</a><a href="#servicios">Servicios</a><a href="#bodas">Bodas y eventos</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a></nav>
-<a class="header-cta" href={wa} target="_blank" rel="noreferrer">Pedir presupuesto</a></header>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header" data-header>
+  <a class="wordmark" href={base} aria-label="Kaléndula Atelier, inicio">
+    <span>Kaléndula</span><small>Atelier floral</small>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+    <span class="nav-toggle-label">Menú</span><span class="nav-toggle-lines" aria-hidden="true"></span>
+  </button>
+  <nav id="main-navigation" class="main-nav" aria-label="Navegación principal">
+    {nav.map((item) => <a href={item.href} aria-current={item.match.startsWith('/') && path.includes(item.match) ? 'page' : undefined}>{item.label}</a>)}
+    <a class="nav-contact" href={whatsappUrl()} target="_blank" rel="noreferrer">Escribir por WhatsApp</a>
+  </nav>
+</header>
 <script is:inline>
-const h=document.querySelector('.header'),b=document.querySelector('.menu-button'),n=document.querySelector('#nav');
-b?.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n?.classList.toggle('open',!o)});
-n?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{b?.setAttribute('aria-expanded','false');n?.classList.remove('open')}));
-let ticking=false,scrolled=false;
-const updateHeader=()=>{const next=scrollY>40;if(next!==scrolled){scrolled=next;h?.classList.toggle('scrolled',next)}ticking=false};
-addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(updateHeader)}},{passive:true});
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
+  const closeMenu = (restoreFocus = false) => {
+    toggle?.setAttribute('aria-expanded', 'false');
+    nav?.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
+    if (restoreFocus && toggle instanceof HTMLElement) toggle.focus();
+  };
+  const openMenu = () => {
+    toggle?.setAttribute('aria-expanded', 'true');
+    nav?.classList.add('is-open');
+    document.body.classList.add('menu-open');
+    nav?.querySelector('a')?.focus();
+  };
+  toggle?.addEventListener('click', () => toggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu());
+  nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeMenu()));
+  addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') closeMenu(true);
+    if (event.key === 'Tab' && toggle?.getAttribute('aria-expanded') === 'true' && nav) {
+      const items = [toggle, ...nav.querySelectorAll('a')].filter((item) => item instanceof HTMLElement);
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+  });
+  const desktop = matchMedia('(min-width: 1024px)');
+  desktop.addEventListener('change', (event) => { if (event.matches) closeMenu(); });
 </script>

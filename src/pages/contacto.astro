@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+import { business, whatsappUrl } from '../data/site';
+---
+<BaseLayout title="Contacto | Kaléndula Atelier" description="Contacta con Kaléndula Atelier para ramos, bodas, eventos y decoración floral en Corrales, Huelva." image="images/gallery-2.webp">
+  <section class="contact-hero"><div><p class="kicker">Contacto</p><h1>Empecemos por los detalles.</h1><p>Para un ramo basta con decirnos la ocasión y la fecha. Si es una boda, un evento o un espacio, cuanta más información tengamos, mejor podremos orientarte.</p></div></section>
+  <section class="contact-layout section-shell">
+    <div class="contact-options">
+      <div><p class="kicker">Respuesta directa</p><h2>Escríbenos o llámanos.</h2></div>
+      <dl><div><dt>WhatsApp</dt><dd><a href={whatsappUrl()} target="_blank" rel="noreferrer">Iniciar conversación ↗</a></dd></div><div><dt>Teléfono</dt><dd><a href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a></dd></div><div><dt>Instagram</dt><dd><a href={business.instagram} target="_blank" rel="noreferrer">{business.instagramHandle} ↗</a></dd></div></dl>
+      <address><span>Atelier</span><a href={business.maps} target="_blank" rel="noreferrer">{business.addressLine}<br>{business.postalCity}<br><u>Cómo llegar</u> ↗</a></address>
+    </div>
+    <InquiryForm />
+  </section>
+  <section class="contact-image"><img src={`${import.meta.env.BASE_URL}images/gallery-2.webp`} width="1080" height="1350" alt="Flores y complementos dispuestos sobre la mesa del atelier" loading="lazy"><p>Si ya tienes una referencia,<br>puedes enviarla por WhatsApp.</p></section>
+</BaseLayout>
