@@ -198,6 +198,8 @@ main { display: block; }
 .mobile-instagram { background: linear-gradient(135deg, #f2b7a5, #a880c5); }
 .mobile-whatsapp { background: #25d366; }
 .mobile-socials .social-icon { width: 46px; height: 46px; flex-basis: 46px; }
+/* Un solo lienzo continuo: el patrón vive en body y no se reinicia por sección. */
+main > *, .site-footer { background: transparent !important; }
 .legal { width: min(100% - 2rem, 820px); margin-inline: auto; padding-block: 5rem; }
 .legal h1 { margin-bottom: 2.5rem; font: 500 clamp(3rem, 13vw, 5rem)/.9 var(--serif); }
 .legal h2 { margin-top: 2.5rem; font: 500 2rem/1 var(--serif); }
