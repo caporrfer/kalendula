@@ -4,5 +4,5 @@ import { whatsappUrl } from '../data/site';
 const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="Página no encontrada | Kaléndula Atelier" description="La página que buscas no está disponible." noindex={true}>
-  <section class="not-found"><p class="kicker">Error 404</p><h1>Esta página ya no está aquí.</h1><p>Puedes volver al inicio o escribirnos si estabas buscando un servicio concreto.</p><div><a class="button button-dark" href={base}>Volver al inicio</a><a class="arrow-link" href={whatsappUrl()} target="_blank" rel="noreferrer">Escribir por WhatsApp <span aria-hidden="true">↗</span></a></div></section>
+  <section class="not-found"><p class="kicker">Error 404</p><h1>Esta página ya no está aquí.</h1><p>Puedes volver al inicio o escribirnos si estabas buscando un servicio concreto.</p><div><a class="button button-dark" href={base}>Volver al inicio</a><a class="arrow-link" href={whatsappUrl()} target="_blank" rel="noreferrer">Escribir por WhatsApp <span class="link-mark" aria-hidden="true"></span></a></div></section>
 </BaseLayout>

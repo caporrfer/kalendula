@@ -33,3 +33,11 @@ test('primary routes expose a real contact path without fake checkout UI', () =>
     assert.doesNotMatch(html, /Añadir al carrito|Finalizar compra|Comprar ahora/);
   }
 });
+
+test('visible link marks use CSS instead of emoji-style arrow glyphs', () => {
+  for (const route of routes) {
+    const html = readFileSync(route, 'utf8');
+    assert.doesNotMatch(html, /↗/);
+    assert.match(html, /class="link-mark"/);
+  }
+});
