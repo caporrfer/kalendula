@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import SocialIcon from '../components/SocialIcon.astro';
 import { business, whatsappUrl } from '../data/site';
 ---
 <BaseLayout title="Contacto | Kaléndula Atelier" description="Contacta con Kaléndula Atelier para ramos, bodas, eventos y decoración floral en Corrales, Huelva." image="images/gallery-2.webp">
@@ -8,7 +9,7 @@ import { business, whatsappUrl } from '../data/site';
   <section class="contact-layout section-shell">
     <div class="contact-options">
       <div><p class="kicker">Respuesta directa</p><h2>Escríbenos o llámanos.</h2></div>
-      <dl><div><dt>WhatsApp</dt><dd><a href={whatsappUrl()} target="_blank" rel="noreferrer">Iniciar conversación <span class="link-mark" aria-hidden="true"></span></a></dd></div><div><dt>Teléfono</dt><dd><a href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a></dd></div><div><dt>Instagram</dt><dd><a href={business.instagram} target="_blank" rel="noreferrer">{business.instagramHandle} <span class="link-mark" aria-hidden="true"></span></a></dd></div></dl>
+      <dl><div><dt>WhatsApp</dt><dd><a href={whatsappUrl()} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Iniciar conversación <span class="link-mark" aria-hidden="true"></span></a></dd></div><div><dt>Teléfono</dt><dd><a href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a></dd></div><div><dt>Instagram</dt><dd><a href={business.instagram} target="_blank" rel="noreferrer"><SocialIcon name="instagram" />{business.instagramHandle} <span class="link-mark" aria-hidden="true"></span></a></dd></div></dl>
       <address><span>Atelier</span><a href={business.maps} target="_blank" rel="noreferrer">{business.addressLine}<br>{business.postalCity}<br><u>Cómo llegar</u> <span class="link-mark" aria-hidden="true"></span></a></address>
     </div>
     <InquiryForm />

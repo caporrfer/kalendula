@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialIcon from '../components/SocialIcon.astro';
 import { whatsappUrl } from '../data/site';
 const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="Bodas y eventos | Kaléndula Atelier" description="Diseño floral para bodas, ceremonias, mesas, celebraciones y eventos en Huelva." image="images/wedding.webp">
   <section class="event-hero" id="bodas">
     <figure><img src={`${base}images/wedding.webp`} width="1280" height="853" alt="Decoración exterior preparada para una celebración" fetchpriority="high"></figure>
-    <div><p class="kicker">Bodas y eventos</p><h1>Flores que pertenecen al lugar.</h1><p>Partimos del espacio, la fecha y la forma en que queréis celebrar para construir una propuesta completa.</p><a class="button button-light" href={whatsappUrl('Hola, me gustaría solicitar información para una boda o evento.')} target="_blank" rel="noreferrer">Consultar disponibilidad</a></div>
+    <div><p class="kicker">Bodas y eventos</p><h1>Flores que pertenecen al lugar.</h1><p>Partimos del espacio, la fecha y la forma en que queréis celebrar para construir una propuesta completa.</p><a class="button button-light" href={whatsappUrl('Hola, me gustaría solicitar información para una boda o evento.')} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Consultar disponibilidad</a></div>
   </section>
 
   <section class="event-intro section-shell"><p class="section-index">01 — Bodas</p><div><h2>Del ramo de novia a la última mesa.</h2><p>Podemos trabajar el ramo, la ceremonia, la bienvenida, los centros de mesa y otros rincones de la celebración. Cada elemento se plantea dentro de la misma línea floral.</p></div></section>
@@ -24,5 +25,5 @@ const base = import.meta.env.BASE_URL;
 
   <section class="planning section-shell"><div><p class="kicker">Para preparar la consulta</p><h2>Qué necesitamos saber.</h2></div><ul><li>Fecha y ubicación</li><li>Tipo de celebración</li><li>Número aproximado de invitados</li><li>Espacios que quieres decorar</li><li>Referencias o colores, si ya los tienes</li></ul></section>
 
-  <section class="contact-band contact-band-lilac"><p class="kicker">Bodas y eventos</p><h2>Comprobamos la fecha y hablamos del espacio.</h2><div><a class="button button-dark" href={whatsappUrl('Hola, me gustaría consultar disponibilidad para una boda o evento.')} target="_blank" rel="noreferrer">Consultar disponibilidad</a><a class="arrow-link" href={`${base}contacto/`}>Enviar una consulta detallada <span class="link-mark" aria-hidden="true"></span></a></div></section>
+  <section class="contact-band contact-band-lilac"><p class="kicker">Bodas y eventos</p><h2>Comprobamos la fecha y hablamos del espacio.</h2><div><a class="button button-dark" href={whatsappUrl('Hola, me gustaría consultar disponibilidad para una boda o evento.')} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Consultar disponibilidad</a><a class="arrow-link" href={`${base}contacto/`}>Enviar una consulta detallada <span class="link-mark" aria-hidden="true"></span></a></div></section>
 </BaseLayout>

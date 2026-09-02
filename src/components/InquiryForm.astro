@@ -1,4 +1,5 @@
 ---
+import SocialIcon from './SocialIcon.astro';
 import { business } from '../data/site';
 ---
 <form class="inquiry-form" data-inquiry-form>
@@ -15,7 +16,7 @@ import { business } from '../data/site';
   <label>Fecha <span class="optional">Opcional</span><input name="fecha" type="date"></label>
   <label>Cuéntanos lo básico <textarea name="mensaje" rows="5" required placeholder="Qué tienes en mente, para cuándo y cualquier detalle que debamos saber"></textarea></label>
   <label class="consent"><input type="checkbox" required><span>He leído y acepto la <a href={`${import.meta.env.BASE_URL}privacidad/`}>política de privacidad</a>.</span></label>
-  <button class="button button-dark" type="submit">Continuar en WhatsApp <span class="link-mark" aria-hidden="true"></span></button>
+  <button class="button button-dark" type="submit"><SocialIcon name="whatsapp" />Continuar en WhatsApp <span class="link-mark" aria-hidden="true"></span></button>
   <p class="form-note">Al pulsar se abrirá WhatsApp con tu consulta preparada. Podrás revisarla antes de enviarla.</p>
 </form>
 <script is:inline define:vars={{ phone: business.phoneE164.replace('+', '') }}>

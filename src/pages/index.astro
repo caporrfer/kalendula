@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialIcon from '../components/SocialIcon.astro';
 import { business, whatsappUrl } from '../data/site';
 const base = import.meta.env.BASE_URL;
 const services = [
@@ -26,7 +27,7 @@ const gallery = [
     <figure class="hero-image"><img src={`${base}images/hero.webp`} width="1080" height="1350" alt="Ramo en tonos rosas, blancos y azules" fetchpriority="high"></figure>
     <div class="hero-detail">
       <p>Ramos por encargo, decoración de espacios y propuestas florales para bodas y celebraciones.</p>
-      <a class="arrow-link" href={whatsappUrl()} target="_blank" rel="noreferrer">Hacer un encargo <span class="link-mark" aria-hidden="true"></span></a>
+      <a class="arrow-link" href={whatsappUrl()} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Hacer un encargo <span class="link-mark" aria-hidden="true"></span></a>
     </div>
 
   </section>
@@ -45,7 +46,7 @@ const gallery = [
   </section>
 
   <section class="work-gallery section-shell" id="trabajos" aria-labelledby="work-title">
-    <header class="section-heading split"><div><p class="kicker">Trabajos recientes</p><h2 id="work-title">Una selección del atelier.</h2></div><a class="arrow-link" href={business.instagram} target="_blank" rel="noreferrer">Seguir en Instagram <span class="link-mark" aria-hidden="true"></span></a></header>
+    <header class="section-heading split"><div><p class="kicker">Trabajos recientes</p><h2 id="work-title">Una selección del atelier.</h2></div><a class="arrow-link" href={business.instagram} target="_blank" rel="noreferrer"><SocialIcon name="instagram" />Seguir en Instagram <span class="link-mark" aria-hidden="true"></span></a></header>
     <div class="masonry-gallery">{gallery.map(([src,alt],index) => <figure class={`gallery-${index+1}`}><img src={`${base}images/${src}`} alt={alt} width="1080" height="1350" loading={index < 2 ? 'eager' : 'lazy'} decoding="async"></figure>)}</div>
   </section>
 
@@ -55,6 +56,6 @@ const gallery = [
   </section>
 
   <section class="contact-band">
-    <p class="kicker">¿Tienes una fecha o una idea?</p><h2>Cuéntanos lo que necesitas.</h2><div><a class="button button-dark" href={whatsappUrl()} target="_blank" rel="noreferrer">Escribir por WhatsApp</a><a class="arrow-link" href={`${base}contacto/`}>Otras formas de contacto <span class="link-mark" aria-hidden="true"></span></a></div>
+    <p class="kicker">¿Tienes una fecha o una idea?</p><h2>Cuéntanos lo que necesitas.</h2><div><a class="button button-dark" href={whatsappUrl()} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Escribir por WhatsApp</a><a class="arrow-link" href={`${base}contacto/`}>Otras formas de contacto <span class="link-mark" aria-hidden="true"></span></a></div>
   </section>
 </BaseLayout>

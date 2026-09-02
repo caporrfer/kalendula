@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialIcon from '../components/SocialIcon.astro';
 import { whatsappUrl } from '../data/site';
 const base = import.meta.env.BASE_URL;
 ---
@@ -10,15 +11,15 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <section class="service-story section-shell" id="ramos">
-    <div class="story-number">01</div><div class="story-copy"><p class="kicker">Ramos y composiciones</p><h2>Flores para regalar o llevar a casa.</h2><p>Preparamos ramos, centros y composiciones con flor fresca o preservada. Cuéntanos la ocasión, el tamaño que buscas y los tonos que prefieres.</p><a class="arrow-link" href={whatsappUrl('Hola, me gustaría encargar un ramo o una composición floral.')} target="_blank" rel="noreferrer">Consultar un encargo <span class="link-mark" aria-hidden="true"></span></a></div><figure><img src={`${base}images/hero.webp`} width="1080" height="1350" alt="Ramo colorido preparado en Kaléndula" fetchpriority="high"></figure>
+    <div class="story-number">01</div><div class="story-copy"><p class="kicker">Ramos y composiciones</p><h2>Flores para regalar o llevar a casa.</h2><p>Preparamos ramos, centros y composiciones con flor fresca o preservada. Cuéntanos la ocasión, el tamaño que buscas y los tonos que prefieres.</p><a class="arrow-link" href={whatsappUrl('Hola, me gustaría encargar un ramo o una composición floral.')} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Consultar un encargo <span class="link-mark" aria-hidden="true"></span></a></div><figure><img src={`${base}images/hero.webp`} width="1080" height="1350" alt="Ramo colorido preparado en Kaléndula" fetchpriority="high"></figure>
   </section>
 
   <section class="service-story service-story-reverse section-shell" id="preservadas">
-    <div class="story-number">02</div><div class="story-copy"><p class="kicker">Flores preservadas</p><h2>Composiciones pensadas para durar.</h2><p>La flor preservada permite crear piezas decorativas que mantienen su aspecto sin cuidados diarios. Diseñamos ramos y detalles adaptados al lugar donde se van a colocar.</p><a class="arrow-link" href={whatsappUrl('Hola, quiero información sobre flores preservadas.')} target="_blank" rel="noreferrer">Pedir información <span class="link-mark" aria-hidden="true"></span></a></div><figure><img src={`${base}images/gallery-3.webp`} width="1080" height="1440" alt="Ramo de calas moradas y blancas" loading="lazy"></figure>
+    <div class="story-number">02</div><div class="story-copy"><p class="kicker">Flores preservadas</p><h2>Composiciones pensadas para durar.</h2><p>La flor preservada permite crear piezas decorativas que mantienen su aspecto sin cuidados diarios. Diseñamos ramos y detalles adaptados al lugar donde se van a colocar.</p><a class="arrow-link" href={whatsappUrl('Hola, quiero información sobre flores preservadas.')} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Pedir información <span class="link-mark" aria-hidden="true"></span></a></div><figure><img src={`${base}images/gallery-3.webp`} width="1080" height="1440" alt="Ramo de calas moradas y blancas" loading="lazy"></figure>
   </section>
 
   <section class="service-story section-shell" id="espacios">
-    <div class="story-number">03</div><div class="story-copy"><p class="kicker">Decoración de espacios</p><h2>Interiores con textura vegetal.</h2><p>Realizamos rincones botánicos y trabajos con musgo preservado para viviendas, comercios y espacios de celebración.</p><a class="arrow-link" href={whatsappUrl('Hola, me gustaría consultar un proyecto de decoración de espacios.')} target="_blank" rel="noreferrer">Contarnos el espacio <span class="link-mark" aria-hidden="true"></span></a></div><figure><img src={`${base}images/gallery-5.webp`} width="1080" height="1440" alt="Pared de musgo preservado con espejo" loading="lazy"></figure>
+    <div class="story-number">03</div><div class="story-copy"><p class="kicker">Decoración de espacios</p><h2>Interiores con textura vegetal.</h2><p>Realizamos rincones botánicos y trabajos con musgo preservado para viviendas, comercios y espacios de celebración.</p><a class="arrow-link" href={whatsappUrl('Hola, me gustaría consultar un proyecto de decoración de espacios.')} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Contarnos el espacio <span class="link-mark" aria-hidden="true"></span></a></div><figure><img src={`${base}images/gallery-5.webp`} width="1080" height="1440" alt="Pared de musgo preservado con espejo" loading="lazy"></figure>
   </section>
 
   <section class="steps section-shell">
@@ -26,5 +27,5 @@ const base = import.meta.env.BASE_URL;
     <ol><li><span>01</span><h3>La ocasión</h3><p>Dinos para quién o para qué es el encargo.</p></li><li><span>02</span><h3>La fecha</h3><p>Indica cuándo quieres recogerlo o tenerlo listo.</p></li><li><span>03</span><h3>La idea</h3><p>Comparte tonos, tamaño o una referencia si la tienes.</p></li></ol>
   </section>
 
-  <section class="contact-band contact-band-peach"><p class="kicker">Encargos</p><h2>Escríbenos con lo que tienes en mente.</h2><div><a class="button button-dark" href={whatsappUrl()} target="_blank" rel="noreferrer">Empezar por WhatsApp</a><a class="arrow-link" href={`${base}contacto/`}>Formulario de consulta <span class="link-mark" aria-hidden="true"></span></a></div></section>
+  <section class="contact-band contact-band-peach"><p class="kicker">Encargos</p><h2>Escríbenos con lo que tienes en mente.</h2><div><a class="button button-dark" href={whatsappUrl()} target="_blank" rel="noreferrer"><SocialIcon name="whatsapp" />Empezar por WhatsApp</a><a class="arrow-link" href={`${base}contacto/`}>Formulario de consulta <span class="link-mark" aria-hidden="true"></span></a></div></section>
 </BaseLayout>
