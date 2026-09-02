@@ -198,7 +198,7 @@ main { display: block; }
 .mobile-socials a { width: 68px; height: 68px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #fff; border: 1px solid rgba(255,255,255,.5); box-shadow: 0 8px 25px rgba(0,0,0,.22); }
 .mobile-instagram { background: linear-gradient(135deg, #f2b7a5, #a880c5); }
 .mobile-whatsapp { background: #25d366; }
-.mobile-socials .social-icon { width: 46px; height: 46px; }
+.mobile-socials .social-icon { width: 54px; height: 54px; }
 .legal { width: min(100% - 2rem, 820px); margin-inline: auto; padding-block: 5rem; }
 .legal h1 { margin-bottom: 2.5rem; font: 500 clamp(3rem, 13vw, 5rem)/.9 var(--serif); }
 .legal h2 { margin-top: 2.5rem; font: 500 2rem/1 var(--serif); }
