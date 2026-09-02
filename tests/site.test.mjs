@@ -41,3 +41,12 @@ test('visible link marks use CSS instead of emoji-style arrow glyphs', () => {
     assert.match(html, /class="link-mark"/);
   }
 });
+
+test('mobile identity keeps the real logo and an icon-only WhatsApp control', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  assert.match(html, /images\/logo-header\.webp/);
+  assert.match(html, /class="mobile-whatsapp"[^>]*aria-label="Escribir por WhatsApp"[^>]*>\s*<svg/);
+  assert.doesNotMatch(html, /class="hero-note"|class="feature-caption"/);
+  const css = readFileSync('src/styles/global.css', 'utf8');
+  assert.match(css, /touch-action:\s*manipulation/);
+});

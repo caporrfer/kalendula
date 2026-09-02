@@ -56,6 +56,9 @@ for (const viewport of viewports) {
         if (await page.locator('.main-nav').isVisible()) failures.push(`${route} ${viewport.name}: mobile menu did not close with Escape`);
         if (!(await toggle.evaluate((button) => button === document.activeElement))) failures.push(`${route} ${viewport.name}: focus did not return to the menu button`);
         if (route === '/' && viewport.name === 'mobile-390') {
+          await toggle.dblclick();
+          if (!(await page.locator('.main-nav').isVisible())) failures.push(`${route} mobile-390: double tap closed the mobile menu`);
+          await page.keyboard.press('Escape');
           await toggle.click();
           await page.setViewportSize({ width: 1024, height: 844 });
           if (await page.locator('body').evaluate((body) => body.classList.contains('menu-open'))) failures.push(`${route} mobile-390: resizing to desktop left page scrolling locked`);
