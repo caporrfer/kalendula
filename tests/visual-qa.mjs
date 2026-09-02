@@ -43,6 +43,17 @@ for (const viewport of viewports) {
       if (await toggle.count() === 0) {
         failures.push(`${route} ${viewport.name}: mobile menu control is missing`);
       } else {
+        if (route === '/' && viewport.name === 'mobile-390') {
+          await page.evaluate(() => window.scrollTo(0, 600));
+          await page.waitForTimeout(100);
+          const headerTop = await page.locator('.site-header').evaluate((header) => header.getBoundingClientRect().top);
+          if (Math.abs(headerTop) > 1) failures.push(`${route} mobile-390: header did not remain sticky while scrolling`);
+          await page.evaluate(() => { location.hash = 'trabajos'; });
+          await page.waitForTimeout(100);
+          const targetTop = await page.locator('#trabajos').evaluate((target) => target.getBoundingClientRect().top);
+          if (targetTop < 75) failures.push(`${route} mobile-390: fixed header obscured the #trabajos target`);
+          await page.evaluate(() => window.scrollTo(0, 0));
+        }
         await toggle.click();
         if (!(await page.locator('.main-nav').isVisible())) failures.push(`${route} ${viewport.name}: mobile menu did not open`);
         if (!(await page.locator('.main-nav a').first().evaluate((link) => link === document.activeElement))) failures.push(`${route} ${viewport.name}: focus did not enter the mobile menu`);

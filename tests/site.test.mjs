@@ -50,3 +50,13 @@ test('mobile identity keeps the real logo and an icon-only WhatsApp control', ()
   const css = readFileSync('src/styles/global.css', 'utf8');
   assert.match(css, /touch-action:\s*manipulation/);
 });
+
+test('mobile navigation has no duplicate WhatsApp action and uses the daisy pattern', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  const navigation = html.match(/<nav id="main-navigation"[\s\S]*?<\/nav>/)?.[0] ?? '';
+  assert.doesNotMatch(navigation, /WhatsApp/);
+  const css = readFileSync('src/styles/global.css', 'utf8');
+  assert.match(css, /\.site-header\s*\{[^}]*position:\s*fixed/);
+  assert.match(css, /daisy-pattern\.svg/);
+  assert.match(css, /scroll-padding-top:\s*76px/);
+});
