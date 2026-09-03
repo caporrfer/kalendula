@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import SocialIcon from '../components/SocialIcon.astro';
 import { business, whatsappUrl } from '../data/site';
+
+const mapQuery = encodeURIComponent(`Kaléndula Atelier, ${business.addressLine}, ${business.postalCity}`);
+const mapEmbedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 ---
 <BaseLayout title="Contacto | Kaléndula Atelier" description="Contacta con Kaléndula Atelier para ramos, bodas, eventos y decoración floral en Corrales, Huelva." image="images/gallery-2.webp">
   <section class="contact-hero"><div><p class="kicker">Contacto</p><h1>Empecemos por los detalles.</h1><p>Para un ramo basta con decirnos la ocasión y la fecha. Si es una boda, un evento o un espacio, cuanta más información tengamos, mejor podremos orientarte.</p></div></section>
@@ -13,6 +16,17 @@ import { business, whatsappUrl } from '../data/site';
       <address><span>Atelier</span><a href={business.maps} target="_blank" rel="noreferrer">{business.addressLine}<br>{business.postalCity}<br><u>Cómo llegar</u> <span class="link-mark" aria-hidden="true"></span></a></address>
     </div>
     <InquiryForm />
+  </section>
+  <section class="location-section section-shell">
+    <div class="location-intro">
+      <p class="kicker">Dónde encontrarnos</p>
+      <h2>Ven a vernos al atelier.</h2>
+      <p>{business.addressLine}<br>{business.postalCity}</p>
+      <a class="button button-dark" href={business.maps} target="_blank" rel="noreferrer">Abrir Google Maps <span class="link-mark" aria-hidden="true"></span></a>
+    </div>
+    <div class="map-frame">
+      <iframe src={mapEmbedUrl} title="Ubicación de Kaléndula Atelier en Corrales, Huelva" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </section>
   <section class="contact-image"><img src={`${import.meta.env.BASE_URL}images/gallery-2.webp`} width="1080" height="1350" alt="Flores y complementos dispuestos sobre la mesa del atelier" loading="lazy"><p>Si ya tienes una referencia,<br>puedes enviarla por WhatsApp.</p></section>
 </BaseLayout>
